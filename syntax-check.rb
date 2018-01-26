@@ -26,7 +26,7 @@ def check_syntax(str)
       else
 
         if open.any? # it's the wrong kind of closing bracket
-          puts "* You have a syntax error: there is an unexpected #{char}"
+          puts "* You have a syntax error: there is an unexpected #{char} where there should be a #{openables[open.last]}"
         else # there's nothing to close
           puts "* You have a syntax error: there is an unexpected #{char} where there is nothing to close."
         end
