@@ -2,7 +2,8 @@ def check_syntax(str)
   openables = {
     "(" => ")",
     "[" => "]",
-    "{" => "}"
+    "{" => "}",
+    "<" => ">"
   }
   open = []
   opening_chars = openables.keys  # all opening braces
@@ -55,3 +56,13 @@ puts "*****"
 puts check_syntax("[this][ is some text")
 puts "*****"
 puts check_syntax("[this] is some text")
+puts "*****"
+puts check_syntax("<html> (this)[] is some text</html>")
+puts "*****"
+puts check_syntax("<html> (this)] is some text</html>")
+puts "*****"
+puts check_syntax("<html> [(this] is some text</html>")
+puts "*****"
+puts check_syntax("<html> [this][ is some text</html")
+puts "*****"
+puts check_syntax("<html> [this] is some text</html")
