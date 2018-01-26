@@ -40,7 +40,7 @@ def check_syntax(str)
   end  # this is the end of the .each, now just need to check if there are any un-closed openables
 
   if open.any?
-    required_char = openables[open.last]
+    required_char = openables[open.first]
     puts "* You have a syntax error: the string ended without a closing #{required_char}"
   end
 
