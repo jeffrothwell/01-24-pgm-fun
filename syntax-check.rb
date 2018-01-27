@@ -39,7 +39,12 @@ def check_syntax(str)
     end
   end  # this is the end of the .each, now just need to check if there are any un-closed openables
 
-  if open.any?
+  if open.size > 1 # multiple unclosed braces
+    puts "* You have a sytax error: multiple unclosed braces. Add in the following order"
+    open.each_index do |index|
+      puts "* #{index + 1}. Closing #{openables[open[-(index + 1)]]}"
+    end
+  elsif open.size == 1  # single unclosed brace
     required_char = openables[open.first]
     puts "* You have a syntax error: the string ended without a closing #{required_char}"
   end
